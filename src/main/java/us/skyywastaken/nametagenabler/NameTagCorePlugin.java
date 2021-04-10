@@ -1,4 +1,4 @@
-package us.skyywastaken.nametagrenderer;
+package us.skyywastaken.nametagenabler;
 
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
 
@@ -8,7 +8,7 @@ import java.util.Map;
 public class NameTagCorePlugin implements IFMLLoadingPlugin {
     @Override
     public String[] getASMTransformerClass() {
-        return new String[]{"us.skyywastaken.nametagrenderer.asm.EntityLivingBaseTransformer"};
+        return new String[]{"us.skyywastaken.nametagenabler.asm.EntityLivingBaseTransformer"};
     }
 
     @Override

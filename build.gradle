@@ -27,8 +27,8 @@ plugins {
 }
 */
 version = "1.0"
-group= "us.skyywastaken.nametagrenderer" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "nametagrenderer"
+group= "us.skyywastaken.nametagenabler" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "nametagenabler"
 
 minecraft {
     version = "1.8.9-11.15.1.2318-1.8.9"
@@ -90,7 +90,7 @@ processResources
 jar {
     manifest {
         attributes (
-                'FMLCorePlugin': "us.skyywastaken.nametagrenderer.NameTagCorePlugin"
+                'FMLCorePlugin': "us.skyywastaken.nametagenabler.NameTagCorePlugin"
         )
     }
 }

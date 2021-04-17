@@ -1,4 +1,4 @@
-# NameTagRenderer
+# NameTagEnabler
 This is a 1.8.9 Forge coremod with the sole purpose of making sure that nametags on living entities are always rendered.
 
 # Warning

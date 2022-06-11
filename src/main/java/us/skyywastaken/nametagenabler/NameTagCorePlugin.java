@@ -4,7 +4,7 @@ import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
 
 import java.util.Map;
 
-@IFMLLoadingPlugin.MCVersion("1.8.9")
+@IFMLLoadingPlugin.MCVersion("1.12.2")
 public class NameTagCorePlugin implements IFMLLoadingPlugin {
     @Override
     public String[] getASMTransformerClass() {

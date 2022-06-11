@@ -5,31 +5,29 @@ import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.AbstractInsnNode;
 import org.objectweb.asm.tree.ClassNode;
-import org.objectweb.asm.tree.InsnList;
 import org.objectweb.asm.tree.MethodInsnNode;
 import org.objectweb.asm.tree.MethodNode;
-import org.objectweb.asm.tree.VarInsnNode;
 
 import java.util.HashMap;
 import java.util.Iterator;
 
 @IFMLLoadingPlugin.TransformerExclusions("us.skyywastaken.nametagenabler.asm")
-@IFMLLoadingPlugin.MCVersion("1.8.9")
+@IFMLLoadingPlugin.MCVersion("1.12.2")
 public class EntityLivingBaseTransformer implements IClassTransformer {
     private final HashMap<String, String> obfuscatedMappings;
     private final HashMap<String, String> deobfuscatedMappings;
 
     public EntityLivingBaseTransformer() {
         obfuscatedMappings = new HashMap<>();
-        obfuscatedMappings.put("className", "pr");
-        obfuscatedMappings.put("methodName", "aO");
-        obfuscatedMappings.put("asmClassLocation", "pr");
-        obfuscatedMappings.put("hasCustomNameMethodName", "l_");
+        obfuscatedMappings.put("className", "vp");
+        obfuscatedMappings.put("methodName", "bs");
+        obfuscatedMappings.put("asmClassLocation", "vp");
+        obfuscatedMappings.put("hasCustomNameMethodName", "n_");
 
         deobfuscatedMappings = new HashMap<>();
-        deobfuscatedMappings.put("className", "net.minecraft.entity.EntityLivingBase");
+        deobfuscatedMappings.put("className", "net.minecraft.entity.Entity");
         deobfuscatedMappings.put("methodName", "getAlwaysRenderNameTagForRender");
-        deobfuscatedMappings.put("asmClassLocation", "net/minecraft/entity/EntityLivingBase");
+        deobfuscatedMappings.put("asmClassLocation", "net/minecraft/entity/Entity");
         deobfuscatedMappings.put("hasCustomNameMethodName", "hasCustomName");
     }
 
@@ -61,25 +59,14 @@ public class EntityLivingBaseTransformer implements IClassTransformer {
             if(!currentMethod.name.equals(mappings.get("methodName"))){
                 continue;
             }
-            InsnList newInsnList = getNewInstructions(mappings);
+            System.out.println("Found method!");
             Iterator<AbstractInsnNode> insnIterator = currentMethod.instructions.iterator();
-            while(insnIterator.hasNext()){
+            while(insnIterator.hasNext()) {
                 AbstractInsnNode currentNode = insnIterator.next();
-                if(currentNode.getOpcode() == Opcodes.ICONST_0) {
-                    currentMethod.instructions.insertBefore(currentNode, newInsnList);
-                    currentMethod.instructions.remove(currentNode);
+                if (currentNode.getOpcode() == Opcodes.INVOKEVIRTUAL) {
+                    ((MethodInsnNode) currentNode).name = mappings.get("hasCustomNameMethodName");
                 }
             }
         }
-    }
-
-    private InsnList getNewInstructions(HashMap<String, String> mappings) {
-        String asmClassLocation = mappings.get("asmClassLocation");
-        String hasCustomNameMethod = mappings.get("hasCustomNameMethodName");
-        InsnList newInstructions = new InsnList();
-        newInstructions.add(new VarInsnNode(Opcodes.ALOAD, 0));
-        newInstructions.add(new MethodInsnNode(Opcodes.INVOKEVIRTUAL, asmClassLocation, hasCustomNameMethod,
-                "()Z", false));
-        return newInstructions;
     }
 }

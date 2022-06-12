@@ -25,9 +25,9 @@ public class EntityLivingBaseTransformer implements IClassTransformer {
         obfuscatedMappings.put("hasCustomNameMethodName", "n_");
 
         deobfuscatedMappings = new HashMap<>();
-        deobfuscatedMappings.put("className", "net.minecraft.entity.Entity");
+        deobfuscatedMappings.put("className", "net.minecraft.entity.EntityLivingBase");
         deobfuscatedMappings.put("methodName", "getAlwaysRenderNameTagForRender");
-        deobfuscatedMappings.put("asmClassLocation", "net/minecraft/entity/Entity");
+        deobfuscatedMappings.put("asmClassLocation", "net/minecraft/entity/EntityLivingBase");
         deobfuscatedMappings.put("hasCustomNameMethodName", "hasCustomName");
     }
 

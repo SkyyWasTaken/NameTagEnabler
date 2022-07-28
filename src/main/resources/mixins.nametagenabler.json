@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.7.10",
-  "package": "us.skyywastaken.nametagenabler",
+  "package": "us.skyywastaken.nametagenabler.mixin",
   "target": "@env(DEFAULT)",
   "compatibilityLevel": "JAVA_8",
   "mixins": [

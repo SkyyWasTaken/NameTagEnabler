@@ -1,4 +1,4 @@
-package us.skyywastaken.nametagenabler;
+package us.skyywastaken.nametagenabler.mixin;
 
 import net.minecraft.entity.Entity;
 import org.spongepowered.asm.mixin.Mixin;

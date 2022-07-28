@@ -15,7 +15,7 @@ apply plugin: 'maven-publish'
 // MixinGradle:
 apply plugin: 'org.spongepowered.mixin'
 
-version = '1.16.5-0.1'
+version = '1.16.5-1.0'
 group = 'us.skyywastaken.nametagenabler' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'nametagenabler'
 
